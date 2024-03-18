@@ -8,7 +8,7 @@
 	navProgress.set(99);
 	let previewURL: string;
 	let uploading = false;
-	$: href = `/${$userData?.username}/edit`;
+	$: href = `/`;
 
 	async function upload(e: any) {
 		uploading = true;

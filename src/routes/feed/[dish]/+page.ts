@@ -7,13 +7,14 @@ export const load = (async ({ params }) => {
 
 	const docRef = doc(db, 'meals', params.dish);
 	const docSnap = await getDoc(docRef);
-
 	if (docSnap.exists()) {
 		data = docSnap.data();
 	} else {
 		// docSnap.data() will be undefined in this case
 		console.log('No such document!');
 	}
+
+    console.log(data)
 	return {
 		data
 	};

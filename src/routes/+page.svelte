@@ -36,7 +36,8 @@
 </script>
 
 <AuthCheck>
-	<main class="mx-auto max-w-xl">
+	<main class="flex flex-col gap-6 mx-auto max-w-xl m-auto items-center">
+		<h1 class="text-2xl font-bold">Cooking Rota</h1>
 		<SortableList list={$rotor.Order} on:sorty={sortList} let:item let:index>
 			<div class="group relative">
 				<!-- @add image -->
@@ -44,6 +45,6 @@
 			</div>
 		</SortableList>
 		<!-- add reset order functionality -->
-		<button class="btn btn-accent" on:click={resetOrder}>Reset rota</button>
+		<button class="btn btn-accent w-full" on:click={resetOrder}>Reset rota</button>
 	</main>
 </AuthCheck>
