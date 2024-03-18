@@ -1,18 +1,20 @@
 <script lang="ts">
-	import { user, userData } from '$lib/firebase';
-	export let siteName: string = 'placeholder';
+	import { user, userData, auth } from '$lib/firebase';
+	import { signOut } from 'firebase/auth';
 	import { page } from '$app/stores';
+	export let siteName: string = 'placeholder';
 
 	$: homeNav = $page.route.id === '/';
+	$: feedNav = $page.route.id === '/feed';
 </script>
 
 <div class="navbar bg-base-100">
 	<div class="flex-1">
-		<a href="/feed" class="btn btn-secondary">View Feed</a>
+		<a href={feedNav ? '/new-meal' : '/feed'} class="btn btn-secondary"
+			>{feedNav ? 'Post new meal' : 'Feed'}</a
+		>
 	</div>
-	<div class="flex-1">
-		<a class="btn btn-ghost text-xl">{siteName}</a>
-	</div>
+
 	<div class="flex flex-row gap-4">
 		<a href={homeNav ? '/new-meal' : '/'} class="btn btn-primary"
 			>{homeNav ? 'Post New Meal' : 'Cooking Rota'}</a
@@ -33,7 +35,7 @@
 					<a class="justify-between"> Profile </a>
 				</li>
 				<!-- svelte-ignore a11y-missing-attribute -->
-				<li><a>Logout</a></li>
+				<li><button on:click={() => signOut(auth)}>Logout</button></li>
 			</ul>
 		</div>
 	</div>

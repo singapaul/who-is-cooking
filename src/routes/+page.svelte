@@ -1,9 +1,5 @@
 <script lang="ts">
 	import AuthCheck from '$lib/components/AuthCheck.svelte';
-	import NavBar from '$lib/components/NavBar.svelte';
-
-	import { page } from '$app/stores';
-	import UserLink from '$lib/components/UserLink.svelte';
 	import SortableList from '$lib/components/SortableList.svelte';
 	import { db, userData, user, rotor } from '$lib/firebase';
 	import { doc, setDoc } from 'firebase/firestore';
@@ -47,7 +43,6 @@
 				<ChefLink name={item.name} index={index + 1} />
 			</div>
 		</SortableList>
-
 		<!-- add reset order functionality -->
 		<button class="btn btn-accent" on:click={resetOrder}>Reset rota</button>
 	</main>

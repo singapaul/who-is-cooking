@@ -4,7 +4,7 @@ import { initializeApp } from 'firebase/app';
 
 import { getAuth, onAuthStateChanged, type User } from 'firebase/auth';
 import { getStorage } from 'firebase/storage';
-import { doc, getDoc, getFirestore, onSnapshot } from 'firebase/firestore';
+import { doc, getFirestore, onSnapshot } from 'firebase/firestore';
 import { writable, type Readable, derived } from 'svelte/store';
 
 // TODO: Add SDKs for Firebase products that you want to use
