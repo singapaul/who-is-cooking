@@ -14,7 +14,7 @@ export const load = (async ({ params }) => {
 		console.log('No such document!');
 	}
 
-    console.log(data)
+	console.log(data);
 	return {
 		data
 	};

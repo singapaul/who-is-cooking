@@ -36,7 +36,7 @@
 </script>
 
 <AuthCheck>
-	<main class="flex flex-col gap-6 mx-auto max-w-xl m-auto items-center">
+	<main class="m-auto mx-auto flex max-w-xl flex-col items-center gap-6">
 		<h1 class="text-2xl font-bold">Cooking Rota</h1>
 		<SortableList list={$rotor.Order} on:sorty={sortList} let:item let:index>
 			<div class="group relative">

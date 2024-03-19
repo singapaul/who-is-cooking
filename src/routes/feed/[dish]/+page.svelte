@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import type { PageData } from './$types';
-    import { page } from '$app/stores';
+	import { page } from '$app/stores';
 	export let data: PageData;
 	$: meal = data.data;
-    console.log(data)
-    console.log(meal)
+	console.log(data);
+	console.log(meal);
 </script>
 
 <section class="m-auto flex h-full w-full">
@@ -21,7 +21,10 @@
 		</div>
 		<div class="m-4 flex justify-evenly gap-4">
 			<button class="btn btn-primary w-36">Favourite</button>
-			<button on:click={() => goto(`/feed/${$page.params.dish}/delete`)} class="btn btn-secondary w-36">Delete</button>
+			<button
+				on:click={() => goto(`/feed/${$page.params.dish}/delete`)}
+				class="btn btn-secondary w-36">Delete</button
+			>
 		</div>
 	</div>
 </section>

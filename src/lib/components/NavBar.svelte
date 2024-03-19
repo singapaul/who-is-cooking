@@ -32,7 +32,7 @@
 			>
 				<li>
 					<!-- svelte-ignore a11y-missing-attribute -->
-					<a href='/profile' class="justify-between"> Profile </a>
+					<a href="/profile" class="justify-between"> Profile </a>
 				</li>
 				<!-- svelte-ignore a11y-missing-attribute -->
 				<li><button on:click={() => signOut(auth)}>Logout</button></li>
