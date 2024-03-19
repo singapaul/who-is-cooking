@@ -15,7 +15,16 @@ export const load = (async ({ params }) => {
 	}
 
 	console.log(data);
+
+	const { chef, cost, createdAt, dish, likedBy, photoURL, postedById, recipe } = data;
 	return {
-		data
+		chef,
+		cost,
+		createdAt,
+		dish,
+		likedBy,
+		photoURL,
+		postedById,
+		recipe
 	};
 }) satisfies PageLoad;

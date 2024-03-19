@@ -1,11 +1,19 @@
 <script lang="ts">
 	import { user, userData, auth } from '$lib/firebase';
 	import { signOut } from 'firebase/auth';
+	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	export let siteName: string = 'placeholder';
 
 	$: homeNav = $page.route.id === '/';
 	$: feedNav = $page.route.id === '/feed';
+
+
+	const handleLogOut = () => {
+		signOut(auth)
+		goto('/')
+
+	}
 </script>
 
 <div class="navbar bg-base-100">
@@ -35,7 +43,7 @@
 					<a href="/profile" class="justify-between"> Profile </a>
 				</li>
 				<!-- svelte-ignore a11y-missing-attribute -->
-				<li><button on:click={() => signOut(auth)}>Logout</button></li>
+				<li><button on:click={handleLogOut}>Logout</button></li>
 			</ul>
 		</div>
 	</div>

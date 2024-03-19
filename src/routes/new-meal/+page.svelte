@@ -84,7 +84,8 @@
 				photoURL,
 				recipe,
 				postedById: $user?.uid,
-				createdAt: serverTimestamp()
+				createdAt: serverTimestamp(),
+				likedBy: []
 			});
 			uploadImage({ docRef: docRef.id }).then(() => goto('/'));
 		} catch (e) {

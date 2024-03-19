@@ -2,19 +2,19 @@
 
 <!-- essential -->
 
-4. profile page
-1. Allow users to like a dish
-3. if you favourite a dish it should show colors and maybe pop confetti
-1. A dish can have likes
-1. logged out home screen which links you to make an account (login or register option)
-1. toast prompt
-1. tidy up the profile screen
 
+6. profile page - update profile picture and see favourites
+7. logged out home screen which links you to make an account (login or register option)
+8. toast prompt
 <!-- sillyness -->
 
 7. BOSH/Megabosh loading screen/waiting screen?? // rating? pop up of big john saying BOSSSH?
 8. YOU HAVE BEEN PROMOTED?
-
-9. logout functionality - DONE
-10. delete meal page - DONE
-11. news feed - DONE
+9. - I will use array methods to upload a list of likes on dishes and likes on users profiles -DONE
+10. Allow users to like a dish - DONE
+11. A dish can have likes- DONE
+    to generate a list of favorites
+12. logout functionality - DONE
+13. delete meal page - DONE
+14. news feed - DONE
+5. if you favourite a dish it should show colors and maybe pop confetti\*\* - DONE

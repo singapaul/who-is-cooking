@@ -1,7 +1,21 @@
 import type { PageLoad } from './$types';
 import { db } from '$lib/firebase';
-import { collection, query, getDocs } from 'firebase/firestore';
+import { collection, query, getDocs, Timestamp } from 'firebase/firestore';
 export const load = (async () => {
+
+  type FireBaseResponse = {
+	chef: string,
+	cost: number, 
+	createdAt: Timestamp,
+	likedBy: string[], 
+	photoURL: string, 
+	postedById: string, 
+	recipe: string,
+	ref: string,
+	dish: string, 
+	id: string
+  }
+
 	const q = query(collection(db, 'meals'));
 	const querySnapshot = await getDocs(q);
 	const data = querySnapshot.docs
@@ -15,9 +29,10 @@ export const load = (async () => {
 		})
 		.reverse();
 
-	console.log(data);
+	const typed: FireBaseResponse[] = data
+	
 
 	return {
-		data
+		typed
 	};
 }) satisfies PageLoad;
