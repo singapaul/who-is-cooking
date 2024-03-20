@@ -95,7 +95,7 @@
 
 	async function uploadImage({ docRef }: { docRef: string }) {
 		uploading = true;
-		const storageRef = ref(storage, `meals/${docRef}/meal.png`);
+		const storageRef = ref(storage, `meals/${docRef}.png`);
 		const result = await uploadBytes(storageRef, fileToUpload);
 		const url = await getDownloadURL(result.ref);
 		await updateDoc(doc(db, 'meals', docRef), { photoURL: url });
@@ -104,7 +104,7 @@
 </script>
 
 <AuthCheck>
-	<form on:submit|preventDefault={handleSubmit} class="m-auto flex max-w-96 flex-col">
+	<form on:submit|preventDefault={handleSubmit} class="m-auto flex max-w-96 flex-col py-9">
 		<FormInput
 			fieldName={'dish'}
 			label={'Dish name'}

@@ -4,17 +4,17 @@
 	import FormSelect from '$lib/components/Form/FormSelect.svelte';
 	import TextAreaInput from '$lib/components/Form/TextAreaInput.svelte';
 	import AuthCheck from '$lib/components/AuthCheck.svelte';
-	import { user, userData, storage, db } from '$lib/firebase';
-	import { doc, updateDoc } from 'firebase/firestore';
+	import { userData, storage, db } from '$lib/firebase';
 	import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+	import { doc, updateDoc } from 'firebase/firestore';
 	import CurrencyInput from '@canutin/svelte-currency-input';
 	import type { PageData } from '../$types';
-    export let data: PageData;
- 
-    import {page} from '$app/stores'
+	export let data: PageData;
+
+	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
- 
-console.log($page)
+
+	console.log($page);
 	type FormData = {
 		chef: string;
 		dish: string;
@@ -27,7 +27,7 @@ console.log($page)
 	let uploading = false;
 	$: href = `/${$userData?.username}/edit`;
 	let fileToUpload: Blob | Uint8Array | ArrayBuffer;
-    let updatePhoto  = false
+	let updatePhoto = false;
 	async function photoInput(e: any) {
 		handleChange(e);
 		previewImage(e);
@@ -78,25 +78,29 @@ console.log($page)
 
 	async function postRecipeToFirebase(formData: FormData) {
 		const { chef, cost, dish, photoURL, recipe } = formData;
-    
-        if (photoURL !== data.photoURL) updatePhoto = true;
+
+		if (photoURL !== data.photoURL) updatePhoto = true;
 		try {
-			 await updateDoc(doc(db, 'meals', $page.params.dish), {
-				chef, cost, dish, photoURL, recipe
+			await updateDoc(doc(db, 'meals', $page.params.dish), {
+				chef,
+				cost,
+				dish,
+				photoURL,
+				recipe
 			});
-      
-			updatePhoto && uploadImage({ docRef: $page.params.dish }).then(() => goto('/rotor'));
+
+			updatePhoto && uploadImage({ docRef: $page.params.dish });
 		} catch (e) {
 			console.error('Error adding document: ', e);
-            console.log(e)
+			console.log(e);
 		}
-        goto('/feed')
+		goto('/feed');
 	}
 
 	async function uploadImage({ docRef }: { docRef: string }) {
 		uploading = true;
-		const storageRef = ref(storage, `meals/${docRef}/meal.png`);
-		const result = fileToUpload && await uploadBytes(storageRef, fileToUpload);
+		const storageRef = ref(storage, `meals/${docRef}.png`);
+		const result = fileToUpload && (await uploadBytes(storageRef, fileToUpload));
 		const url = await getDownloadURL(result.ref);
 		await updateDoc(doc(db, 'meals', docRef), { photoURL: url });
 		uploading = false;
@@ -104,7 +108,7 @@ console.log($page)
 </script>
 
 <AuthCheck>
-	<form on:submit|preventDefault={handleSubmit} class="m-auto flex max-w-96 flex-col">
+	<form on:submit|preventDefault={handleSubmit} class="m-auto flex max-w-96 flex-col py-9">
 		<FormInput
 			fieldName={'dish'}
 			label={'Dish name'}
@@ -150,7 +154,7 @@ console.log($page)
 
 		<div class="form-control mx-auto my-10 w-full max-w-xs text-center">
 			<img
-				src={ previewURL ?? data.photoURL ?? '/default-meal.webp'}
+				src={previewURL ?? data.photoURL ?? '/default-meal.webp'}
 				alt="photoURL"
 				width="256"
 				height="256"
@@ -177,8 +181,10 @@ console.log($page)
 				<progress class="progress progress-info mt-6 w-56" />
 			{/if}
 		</div>
-
-		<button type="submit" class="btn btn-primary">submit</button>
+		<div class="flex flex-col gap-5">
+			<button type="submit" class="btn btn-primary">submit</button>
+			<a href={`/feed/${$page.params.dish}`} class="btn btn-accent">back</a>
+		</div>
 	</form>
 </AuthCheck>
 

@@ -14,8 +14,6 @@ export const load = (async ({ params }) => {
 		console.log('No such document!');
 	}
 
-
-
 	const { chef, cost, createdAt, dish, likedBy, photoURL, postedById, recipe } = data;
 	return {
 		chef,

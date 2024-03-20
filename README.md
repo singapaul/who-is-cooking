@@ -4,7 +4,9 @@
 
 6. profile page - update profile picture and see favourites
 7. logged out home screen which links you to make an account (login or register option)
-9. edit meal page
+
+- Delete image from the database on delte - I need to restructure how I store my image files all in one folder instead
+
 10. On meal delete you need to remove it from their list of liked meals
 
 11. Write a cloud function to handle the delelte process
@@ -21,4 +23,5 @@
 19. delete meal page - DONE
 20. news feed - DONE
 21. if you favourite a dish it should show colors and maybe pop confetti\*\* - DONE
-8. toast prompt - done
+22. toast prompt - done
+23. edit meal page

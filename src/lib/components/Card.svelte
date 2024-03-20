@@ -13,7 +13,7 @@
 	}
 </script>
 
-<div class="card h-96 w-96 bg-base-100 shadow-xl">
+<div class="card h-96 w-96 border-2 border-white bg-base-100 shadow-xl">
 	<figure class="">
 		<img src={photoURL} alt={dish} class="object-fill" />
 	</figure>

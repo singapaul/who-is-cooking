@@ -33,18 +33,31 @@
 		const userRef = doc(db, 'rotor', '267rotor');
 		setDoc(userRef, { Order: list });
 	}
+
+	async function handleStatus(event, id) {
+		console.log(event, id); // Destructure the id from event.detail
+		// console.log("Clicked ID:", id);
+		console.log(id);
+		// You can now use this id for further processing
+	}
 </script>
 
 <AuthCheck>
-	<main class="m-auto mx-auto flex max-w-xl flex-col items-center gap-6">
+	<main class="m-auto mx-auto flex max-w-xl flex-col items-center gap-6 py-9">
 		<h1 class="text-2xl font-bold">Cooking Rota</h1>
 		<SortableList list={$rotor.Order} on:sorty={sortList} let:item let:index>
 			<div class="group relative">
 				<!-- @add image -->
-				<ChefLink name={item.name} index={index + 1} />
+				<ChefLink
+					id={item.id}
+					name={item.name}
+					index={index + 1}
+					checkedStatus={item.cooked}
+					handleCheck={handleStatus}
+				/>
 			</div>
 		</SortableList>
 		<!-- add reset order functionality -->
-		<button class="btn btn-accent w-full" on:click={resetOrder}>Reset rota</button>
+		<button class="btn btn-accent w-full" on:click={resetOrder}>Re-order rota</button>
 	</main>
 </AuthCheck>
