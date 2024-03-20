@@ -1,12 +1,13 @@
-import functions = require('firebase-functions');
-import admin = require('firebase-admin');
+import functions from 'firebase-functions'
+import admin from 'firebase-admin'
 admin.initializeApp();
 
 exports.toggleCooked = functions.firestore
-	.document('rotor/267rotor')
+	.document("rotor/267rotor")
 	.onWrite(async (change, context) => {
 		const document = change.after.exists ? change.after.data() : null;
 
+        console.log(document)
 		// Exit if the document does not exist.
 		if (!document) return;
 

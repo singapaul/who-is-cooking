@@ -58,6 +58,9 @@
 			</div>
 		</SortableList>
 		<!-- add reset order functionality -->
+		<div class='flex flex-col gap-4 w-full'>
 		<button class="btn btn-accent w-full" on:click={resetOrder}>Re-order rota</button>
+		<button class="btn btn-warning w-full" on:click={hardReset}>Hard reset rota</button>
+	</div>
 	</main>
 </AuthCheck>
