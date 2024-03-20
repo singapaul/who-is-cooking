@@ -9,10 +9,8 @@
 	import { doc, getDoc, updateDoc } from 'firebase/firestore';
 	import Confetti from 'svelte-confetti';
 
+	$: sparkles = checkedStatus;
 
-	$: sparkles = checkedStatus
-
-	
 	async function handleClick() {
 		// You could pass more information if needed
 		const documentRef = doc(db, 'rotor', '267rotor');
@@ -36,7 +34,7 @@
 
 <!-- svelte-ignore a11y-missing-attribute -->
 <a
-	class={`not-prose stack flex w-full min-w-80 max-w-md items-center justify-center rounded-lg bg-base-300 p-4 text-center no-underline border ${checkedStatus ? 'border-green-500' : 'border-white' }`}
+	class={`not-prose stack flex w-full min-w-80 max-w-md items-center justify-center rounded-lg border bg-base-300 p-4 text-center no-underline ${checkedStatus ? 'border-green-500' : 'border-white'}`}
 >
 	<p class="text-2xl font-bold">{name}</p>
 	<div class="form-control">
@@ -49,7 +47,7 @@
 				class="checkbox-primary checkbox"
 			/>
 			{#if sparkles}
-			<Confetti />
+				<Confetti />
 			{/if}
 		</label>
 	</div>
