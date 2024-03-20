@@ -6,7 +6,10 @@
 	import AuthCheck from '$lib/components/AuthCheck.svelte';
 
 	const handleDelete = async () => {
+		// update
+		// batch.delete(doc(db, 'meals', $page.params.dish))
 		await deleteDoc(doc(db, 'meals', $page.params.dish));
+		// todo I need to delete a photo from the storage database as well here.
 		goto('/');
 	};
 

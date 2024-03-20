@@ -8,12 +8,10 @@
 	$: homeNav = $page.route.id === '/';
 	$: feedNav = $page.route.id === '/feed';
 
-
 	const handleLogOut = () => {
-		signOut(auth)
-		goto('/')
-
-	}
+		signOut(auth);
+		goto('/');
+	};
 </script>
 
 <div class="navbar bg-base-100">

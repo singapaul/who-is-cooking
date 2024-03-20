@@ -3,7 +3,6 @@
 	import Grid from '$lib/components/Grid.svelte';
 	import type { PageData } from './$types';
 	export let data: PageData;
- 
 </script>
 
 <Grid>
