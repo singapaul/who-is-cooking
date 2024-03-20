@@ -93,16 +93,6 @@
   "_utils.js": {
     "file": "chunks/utils.js"
   },
-  "node_modules/@sveltejs/kit/src/runtime/components/error.svelte": {
-    "file": "entries/fallbacks/error.svelte.js",
-    "src": "node_modules/@sveltejs/kit/src/runtime/components/error.svelte",
-    "isEntry": true,
-    "imports": [
-      "_utils.js",
-      "_ssr.js",
-      "_stores.js"
-    ]
-  },
   "node_modules/@sveltejs/kit/src/runtime/server/index.js": {
     "file": "index.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/server/index.js",
@@ -112,6 +102,16 @@
       "_index.js",
       "_exports.js",
       "_index2.js"
+    ]
+  },
+  "src/routes/+error.svelte": {
+    "file": "entries/pages/_error.svelte.js",
+    "src": "src/routes/+error.svelte",
+    "isEntry": true,
+    "imports": [
+      "_utils.js",
+      "_ssr.js",
+      "_stores.js"
     ]
   },
   "src/routes/+layout.svelte": {
@@ -127,7 +127,7 @@
       "_notifications.js"
     ],
     "css": [
-      "_app/immutable/assets/_layout.Cv-oKZYK.css"
+      "_app/immutable/assets/_layout.B8wAMShT.css"
     ]
   },
   "src/routes/+page.svelte": {
